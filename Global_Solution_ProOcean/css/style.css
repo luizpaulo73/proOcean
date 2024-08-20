@@ -1,0 +1,672 @@
+@import url('https://fonts.googleapis.com/css2?family=K2D:wght@400;700&family=Kumbh+Sans:wght@100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body.no-scroll{
+    overflow: hidden;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(45,213,246, 0.7), rgba(45,213,246, 0.7)), url("../img/textura_agua.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-width: 280px;
+}
+
+::-webkit-scrollbar{
+    width: 12px;
+    background-color: #0092C4;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #004AAB;
+    border-radius: 10px;
+}
+
+@keyframes peixeNadando {
+    0%{
+        transform: translateX(-200px);
+    }
+    100%{
+        transform: translateX(100vw);
+    }
+}
+
+@keyframes peixeTropicalNadando{
+    0%{
+        transform: translateX(100vw);
+    }
+    100%{
+        transform: translateX(-200px);
+    }
+}
+
+.imagem{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.cabecalho{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    height: 85vh;
+}
+
+.logo{
+    width: 55vw;
+}
+
+.navegacao ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 1000;
+    animation: fundoHeader 1ms linear both;
+    animation-timeline: scroll();
+    animation-range: cover 0% cover 50%;
+}
+
+@keyframes fundoHeader{
+    from{
+        background-color: transparent
+    }
+    to{
+        background-color: rgba(0, 0, 0, 0.4)
+    }
+}
+
+.texto-nav{
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    color: white;
+    width: 170px;
+    height: 70px;
+    font-size: 35px;
+    font-family: "K2D" , sans-serif;
+    font-weight: 700;
+    text-shadow: black 0.05em 0.05em 0.05em;
+}
+
+.texto-nav::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0.175rem;
+    left: 0;
+    bottom: 0;
+    background-color: white;
+    transform: scale(0,1);
+    transition: transform 0.3s;
+}
+
+.texto-nav:hover::after{
+    transform: scale(1,1);
+}
+
+.onda{
+    display: block;
+    width: 100%;
+    left: 0;
+}
+
+.onda-fundo{
+    background-color: #22A9D3;
+}
+
+.onda-fundo1{
+    background-color: #15A1CD;
+}
+
+.onda-fundo2{
+    background-color: #1C7793;
+}
+
+.onda-fundo3{
+    background-color: #0D3744;
+}
+
+#introducao{
+    background-color: #22A9D3;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 2% 5% 7% 5%;
+}
+
+.texto{
+    color: white;
+    font-size: 25px;
+    font-family: "K2D" , sans-serif;
+    text-align: justify;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+#introducao-ideias{
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #15A1CD;
+    overflow: hidden;
+}
+
+.titulo{
+    font-size: 60px;
+    font-family: "K2D" , sans-serif;
+    color: white;
+    text-align: center;
+}
+
+.conteudo-introducao{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+}
+
+.botao-secundario{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.botoes{
+    background-color: white;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    width: 230px;
+    height: 230px;
+    transition: 0.4s ease-in-out;
+}
+
+#botao-proocean{
+    background-image: url("../img/proocean.png");
+    background-size: cover;
+}
+
+#botao-boia{
+    background-image: url("../img/plataforma.png");
+    background-size: cover;
+}
+
+#botao-natureza{
+    background-image: url("../img/natureza.png");
+    background-size: cover;
+}
+
+.botao-modal{
+    width: 230px;
+    display: none;
+}
+
+.botoes:hover{
+    width: 250px;
+    height: 250px;
+}
+
+dialog::backdrop{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+dialog {
+    margin: 7% auto;
+    width: 50%;
+    height: auto;
+    border: none;
+    border-radius: 10px;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+    font-family: "K2D" , sans-serif;
+    font-size: 20px;
+}
+
+dialog[open] {
+    animation: fade-in 500ms forwards;
+}
+
+@keyframes fade-in{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+#modal-proocean , #modal-boia , #modal-natureza{
+    width: 80%;
+
+    p{
+        font-size: 26px;
+    }
+}
+
+#btn-fechar-natureza , #btn-fechar-boia , #btn-fechar-proocean{
+    cursor: pointer;
+    padding: 1%;
+    max-width: fit-content;
+    width: 100%;
+    font-size: 30px;
+    border-radius: 10px;
+    font-family: "K2D" , sans-serif;
+    background-color: #004AAB;
+    color: white;
+    transition: 0.4s ease-in-out;
+    border: none;
+}
+
+#btn-fechar-natureza:hover , #btn-fechar-boia:hover , #btn-fechar-proocean:hover{
+    background-color: #0092C4;
+}
+
+.peixe{
+    width: 5%;
+    animation: peixeNadando 10s infinite ease-in-out;
+}
+
+#acao-solucao{
+    background-color: #1C7793;
+    overflow: hidden;
+    padding: 2% 5% 7% 5%;
+}
+
+.peixe-tropical{
+    width: 5%;
+    animation: peixeTropicalNadando 10s infinite ease-in-out;
+}
+
+.contato{
+    background-color: #0D3744;
+}
+
+fieldset{
+    border: none;
+    background-color: #0D3744;
+}
+
+form{
+    background-color: #0D3744;
+}
+
+.campos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+legend{
+    font-family: "K2D" , sans-serif;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+}
+
+label{
+    font-family: "K2D" , sans-serif;
+    color: white;
+    font-size: 20px;
+}
+
+input , textarea{
+    font-family: "K2D" , sans-serif;
+    background-color: white;
+    border-radius: 5px;
+    border: #15A1CD solid 3px;
+    color: black;
+    min-width: 50vw;
+    max-width: 50vw;
+    font-size: 20px;
+    padding-left: 5px;
+}
+
+input:focus , textarea:focus{
+    border: #1C7793 solid 3px;
+}
+
+.mensagem textarea{
+    max-height: 15vh;
+    min-height: 15vh;
+}
+
+.email , .mensagem , .nome{
+    display: flex;
+    flex-direction: column;
+}
+
+#enviar{
+    background-color: #15A1CD;
+    color: white;
+    font-family: "K2D" , sans-serif;
+    font-size: 35px;
+    border: none;
+    border-radius: 5px;
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: 0.4s ease-in-out;
+}
+
+#enviar:hover{
+    background-color: #1C7793;
+}
+
+@keyframes peixeLanterna{
+    0%{
+        transform: translateY(+10px);
+    }
+    25%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-10px);
+    }
+    75%{
+        transform: translateY(0px);
+    }
+    100%{
+        transform: translateY(+10px);
+    }
+}
+
+.direitos{
+    color: white;
+    font-family: "K2D" , sans-serif;
+    font-weight: 600;
+}
+
+.tubarao{
+    width: 17%;
+    animation: tubaraoNadando 10s infinite ease-in-out;
+}
+
+.tubarao-fundo{
+    background-color: #0D3744;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contato{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fale-conosco{
+    font-family: "K2D" , sans-serif;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: white;
+    background-color: #0092C4;
+    width: auto;
+    height: auto;
+    padding: 5px;
+    border-radius: 10px;
+    border: #0a4553 solid 3px;
+    transition: 0.4s ease-in-out;
+}
+
+.fale-conosco:hover{
+    background-color: #0a4553;
+}
+
+@keyframes tubaraoNadando {
+    0%{
+        transform: translateX(-300px);
+    }
+    100%{
+        transform: translateX(100vw);
+    }
+}
+
+.rodape{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #030F12;
+    height: 250px;
+    align-items: center;
+}
+
+.peixe-lanterna{
+    width: 40%;
+    animation: peixeLanterna 6s infinite linear;
+}
+
+.mergulhador1{
+    width: 20%;
+    rotate: 54deg;
+    animation: mergulhador 4s infinite linear;
+}
+
+.mergulhador2{
+    width:19%;
+    rotate: 165deg;
+    animation: mergulhador 4s infinite linear;
+}
+
+.esquerda{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.meio{
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+}
+
+.direita{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+@keyframes mergulhador{
+    0%{
+        transform: translateY(+10px);
+    }
+    25%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-10px);
+    }
+    75%{
+        transform: translateY(0px);
+    }
+    100%{
+        transform: translateY(+10px);
+    }
+}
+
+@media screen and (max-width:1300px) {
+    .tubarao{
+        width: 20%;
+    }
+}
+
+@media screen and (max-width:920px) {
+    .direitos{
+        font-size: 13px;
+    }
+
+    .rodape{
+        height: 200px;
+    }
+
+    .botoes{
+        pointer-events: none;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .texto-nav{
+        font-size: 24px;
+    }
+
+    .cabecalho{
+        height: 50vh;
+    }
+
+    .titulo{
+        font-size: 40px;
+    }
+
+    .texto{
+        font-size: 20px;
+    }
+
+    .botoes{
+        width: 180px;
+        height: 180px;
+    }
+    
+    .botao-modal{
+        width: 180px;
+    }
+
+    .fale-conosco{
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width:750px){
+    .direitos{
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width:600px){
+    .botoes{
+        width: 150px;
+        height: 150px;
+    }
+
+    .botao-modal{
+        width: 150px;
+    }
+
+    .direitos{
+        font-size: 8px;
+    }
+
+    .rodape{
+        height: 150px;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .navegacao ul{
+        padding: 10px;
+    }
+
+    .texto-nav{
+        font-size: 18px;
+    }
+
+    .texto{
+        font-size: 16px;
+    }
+
+    .botoes{
+        width: 130px;
+        height: 130px;
+    }
+
+    .botao-modal{
+        width: 130px;
+    }
+
+    .rodape{
+        height: 130px;
+    }
+
+    .fale-conosco{
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width:456px) {
+    .direitos{
+        font-size: 6px;
+    }
+
+    .rodape{
+        height: 110px;
+    }
+}
+
+@media screen and (max-width:430px) {
+    .texto-nav{
+        font-size: 13px;
+    }
+
+    .texto{
+        font-size: 12px;
+    }
+
+    .botoes{
+        width: 100px;
+        height: 100px;
+    }
+    
+    .botao-modal{
+        width: 100px;
+    }
+}
+
+@media screen and (max-width:380px) {
+    .texto{
+        font-size: 10px;
+    }
+
+    .titulo{
+        font-size: 30px;
+    }
+
+    .direitos{
+        text-align: center;
+    }
+}

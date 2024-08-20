@@ -1,0 +1,398 @@
+@import url('https://fonts.googleapis.com/css2?family=K2D:wght@400;700&family=Kumbh+Sans:wght@100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@keyframes peixeLanterna {
+    0%{
+        transform: translateY(+10px);
+    }
+    25%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-10px);
+    }
+    75%{
+        transform: translateY(0px);
+    }
+    100%{
+        transform: translateY(+10px);
+    }
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    width: 100%;
+    background: linear-gradient(rgba(45,213,246, 0.6), rgba(45,213,246, 0.7)), url("../img/textura_agua.jpg");
+    background-repeat: repeat-y;
+    background-size: cover;
+    min-width: 280px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+::-webkit-scrollbar{
+    width: 12px;
+    background-color: #0092C4;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #004AAB;
+    border-radius: 10px;
+}
+
+.cabecalho{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.navegacao ul{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 1000;
+    animation: fundoHeader 1ms linear both;
+    animation-timeline: scroll();
+    animation-range: cover 0% cover 50%;
+}
+
+@keyframes fundoHeader {
+    from{
+        background-color: transparent
+    }
+    to{
+        background-color: rgba(0, 0, 0, 0.4)
+    }
+}
+
+.texto-nav{
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    color: white;
+    width: 170px;
+    height: 70px;
+    font-size: 30px;
+    font-family: "K2D", sans-serif;
+    font-weight: 700;
+    text-shadow: black 0.05em 0.05em 0.05em;
+}
+
+.texto-nav::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0.175rem;
+    left: 0;
+    bottom: 0;
+    background-color: white;
+    transform: scale(0,1);
+    transition: transform 0.3s;
+}
+
+.texto-nav:hover::after{
+    transform: scale(1,1);
+}
+
+.onda{
+    display: block;
+    width: 100%;
+}
+
+#conteudo{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.participantes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.aluno{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgba(255, 255, 255, 0.4);
+    font-family: "K2D", sans-serif;
+    font-weight: 700;
+    margin: 10px 0;
+    padding: 20px;
+    border-radius: 10px;
+    width: 95vw;
+    height: 40vh;
+}
+
+.allan , .julio , .luiz{
+    width: 28%;
+    font-family: "K2D", sans-serif;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    padding: 10px 10px 10px 10px;
+    border-radius: 10px;
+    width: 95vw;
+    height: 40%;
+}
+
+.redes-sociais{
+    display: flex;
+    justify-content: space-around;
+}
+
+.infos p{
+    font-size: 40px;
+    text-align: center;
+}
+
+.infos a img{
+    width: 100px;
+}
+
+.imagem-participante{
+    width: 50%;
+}
+
+.link-repositorio{
+    display: flex;
+    justify-content: center;
+}
+
+.repositorio{
+    font-family: "K2D" , sans-serif;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: white;
+    background-color: #0092C4;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    border: #0a4553 solid 3px;
+    transition: 0.4s ease-in-out;
+}
+
+.repositorio:hover{
+    background-color: #0a4553;
+}
+
+.rodape{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #030F12;
+    height: 160px;
+    align-items: center;
+}
+
+.peixe-lanterna{
+    width: 30%;
+    animation: peixeLanterna 6s infinite linear;
+}
+
+.mergulhador1{
+    width: 14%;
+    rotate: 54deg;
+    animation: mergulhador 4s infinite linear;
+}
+
+.mergulhador2{
+    width: 13%;
+    rotate: 165deg;
+    animation: mergulhador 4s infinite linear;
+}
+
+.esquerda{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.meio{
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+}
+
+.direita{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+@keyframes mergulhador {
+    0%{
+        transform: translateY(+10px);
+    }
+    25%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-10px);
+    }
+    75%{
+        transform: translateY(0px);
+    }
+    100%{
+        transform: translateY(+10px);
+    }
+}
+
+.direitos{
+    color: white;
+    font-family: "K2D", sans-serif;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 1300px) {
+    .infos p{
+        font-size: 25px;
+    }
+
+    .infos a img{
+        width: 80px;
+    }
+
+    .imagem-participante{
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 920px) {
+    .direitos{
+        font-size: 13px;
+    }
+
+    .rodape{
+        height: 200px;
+    }
+
+    .participantes{
+        display: flex;
+        flex-direction: column;
+        margin-top: 0;
+    }
+
+    .container{
+        margin-top: 50px;
+    }
+
+    .infos p{
+        font-size: 20px;
+    }
+
+    .infos a img{
+        width: 60px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .texto-nav{
+        font-size: 24px;
+    }
+
+    .aluno{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .foto{
+        display: flex;
+        justify-content: center;
+    }
+
+    .imagem-participante{
+        width: 150px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .direitos{
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .direitos{
+        font-size: 8px;
+    }
+
+    .rodape{
+        height: 150px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .navegacao ul{
+        padding: 10px;
+    }
+
+    .texto-nav{
+        font-size: 18px;
+    }
+
+    .rodape{
+        height: 130px;
+    }
+}
+
+@media screen and (max-width: 456px) {
+    .direitos{
+        font-size: 6px;
+    }
+
+    .rodape{
+        height: 110px;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .texto-nav{
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .direitos{
+        text-align: center;
+    }
+
+    .infos p{
+        font-size: 16px;
+    }
+
+    .infos a img{
+        width: 40px;
+    }
+}
